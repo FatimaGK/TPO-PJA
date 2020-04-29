@@ -1,0 +1,90 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=windows-125">
+
+
+
+    <title>WEB-API_AJAX</title>
+    <script src="some/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#operand2' ).focusout(function () {
+                var operand1 =$('#operand1').val();
+                var operand2=$('#operand2').val();
+                $.ajax({
+                    type:'POST',
+                    data: {
+                        operand1:operand1,
+                        operand2:operand2,
+
+
+
+                    },
+
+
+
+                    url: '/add',
+                    success:function (result) {
+                        $('#result').html(result);
+
+
+
+                    }
+                });
+
+
+
+            });
+
+
+
+            $('#operand1' ).focusout(function () {
+                var operand1 =$('#operand1').val();
+                var operand2=$('#operand2').val();
+                $.ajax({
+
+                    type:'GET',
+                    data: {
+                        operand1:operand1,
+                        operand2:operand2,
+                    },
+                   url: '/add',
+                    success:function (result) {
+                        $('#result').html(result);
+
+
+
+                    }
+                });
+
+
+
+            });
+
+
+
+
+        });
+    </script>
+</head>
+<body>
+<form >
+    <label> component 1</label>
+    <!-- --->
+    <input id ="operand1" type ="number" size="50" name="operand1"><br>
+    <label> component 2</label>
+    <!-- --->
+    <input id ="operand2" type ="number" size="50" name="operand2" ><br>
+    <br>
+    <br>
+    <label> RESULT: </label>
+    <span id="result"></span>
+
+
+
+
+</form>
+<script src="js/Index.js"> </script>
+</body>
+</html>
